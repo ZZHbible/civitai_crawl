@@ -36,7 +36,9 @@ class CivitaiSpider(scrapy.Spider):
         data = json.loads(response.body.decode())
         for model in data['items']:
             item = ModelItem()
+            if model['nsfw']: continue # avoid nsfw model
             item['id'] = model['id']
+            item['creator_name']=model["creator"]['username']
             item['type'] = model['type']
             item['downloadCount'] = model['stats']['downloadCount']
             item['ratingCount'] = model['stats']['ratingCount']

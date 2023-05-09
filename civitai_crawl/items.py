@@ -14,6 +14,7 @@ class CreatorItem(scrapy.Item):
 
 class ModelItem(scrapy.Item):
     id=scrapy.Field()
+    creator_name=scrapy.Field()
     type=scrapy.Field()
     downloadCount=scrapy.Field()
     ratingCount=scrapy.Field()
